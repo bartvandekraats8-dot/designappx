@@ -1,0 +1,15 @@
+.stage {
+  flex: 1;
+  min-width: 0;
+  display: grid;
+  place-items: center;
+  background: var(--color-surface-sunken);
+  overflow: hidden;
+  padding: var(--space-8);
+}
+
+.svg {
+  max-width: 100%;
+  max-height: 100%;
+  filter: drop-shadow(var(--shadow-2));
+}

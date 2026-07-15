@@ -1,0 +1,178 @@
+.panel {
+  flex: none;
+  width: var(--panel-w);
+  display: flex;
+  flex-direction: column;
+  background: var(--color-surface);
+  border-left: 1px solid var(--color-hairline);
+  overflow-y: auto;
+}
+
+.section {
+  border-bottom: 1px solid var(--color-hairline);
+}
+
+.summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-3) var(--space-4);
+  user-select: none;
+  transition: background-color var(--motion-fast) var(--ease-out);
+}
+
+.summary::-webkit-details-marker {
+  display: none;
+}
+
+.summary:hover {
+  background: var(--color-surface-hover);
+}
+
+.summaryTitle {
+  font-family: var(--font-display);
+  font-weight: var(--weight-semibold);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.chevron {
+  width: 14px;
+  height: 14px;
+  color: var(--color-text-faint);
+  transition: transform var(--motion-fast) var(--ease-out);
+}
+
+.section[open] .chevron {
+  transform: rotate(90deg);
+}
+
+.body {
+  padding: 0 var(--space-4) var(--space-4);
+}
+
+.placeholder {
+  font-size: var(--text-sm);
+  line-height: var(--leading-snug);
+  color: var(--color-text-faint);
+}
+
+@media (max-width: 560px) {
+  .panel {
+    display: none;
+  }
+}
+
+/* ---- Garment picker (INC-1) ---------------------------------------------- */
+
+.garment {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.garmentList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.garmentItem {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  padding: var(--space-2) var(--space-3);
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  text-align: left;
+  cursor: pointer;
+  transition:
+    background-color var(--motion-fast) var(--ease-out),
+    border-color var(--motion-fast) var(--ease-out);
+}
+
+.garmentItem:hover {
+  background: var(--color-surface-hover);
+}
+
+.garmentItem[data-active='true'] {
+  background: var(--color-accent-wash);
+  border-color: var(--color-accent);
+}
+
+.garmentLabel {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  color: var(--color-text);
+}
+
+.garmentItem[data-active='true'] .garmentLabel {
+  color: var(--color-text-bright);
+}
+
+.garmentZone {
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  color: var(--color-text-faint);
+}
+
+.colorHead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-top: var(--space-2);
+}
+
+.colorTitle {
+  font-family: var(--font-display);
+  font-weight: var(--weight-semibold);
+  font-size: var(--text-2xs);
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.colorValue {
+  font-size: var(--text-xs);
+  color: var(--color-text-faint);
+}
+
+.swatches {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: var(--space-1);
+}
+
+.swatch {
+  aspect-ratio: 1;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xs);
+  cursor: pointer;
+  padding: 0;
+  transition:
+    transform var(--motion-fast) var(--ease-out),
+    box-shadow var(--motion-fast) var(--ease-out);
+}
+
+.swatch:hover {
+  transform: translateY(-1px);
+}
+
+.swatch[data-active='true'] {
+  border-color: var(--color-accent);
+  box-shadow:
+    0 0 0 1px var(--color-accent),
+    0 0 0 4px var(--color-accent-wash);
+}
+
+.colorHint {
+  font-size: var(--text-2xs);
+  line-height: var(--leading-snug);
+  color: var(--color-text-faint);
+}

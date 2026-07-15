@@ -1,0 +1,173 @@
+/* =============================================================================
+   Atelier Dark — design tokens for [X] Print Studio
+   -----------------------------------------------------------------------------
+   A warm darkroom. Chalk on slate for the chrome; the artboard is the only lit
+   surface in the room; process magenta is held in reserve for the registration
+   mark and the single point of live interaction. Reference the *semantic*
+   tokens from components — the raw scales below are the paint, not the palette.
+   ========================================================================== */
+
+:root {
+  /* ---- Raw · warm slate (the darkroom) ----------------------------------- */
+  --slate-1000: hsl(24 9% 5%);
+  --slate-950:  hsl(24 8% 7%);
+  --slate-900:  hsl(24 8% 9%);
+  --slate-850:  hsl(24 7% 11%);
+  --slate-800:  hsl(24 7% 13%);
+  --slate-750:  hsl(24 7% 16%);
+  --slate-700:  hsl(24 6% 20%);
+  --slate-650:  hsl(24 6% 27%);
+  --slate-500:  hsl(26 5% 41%);
+
+  /* ---- Raw · chalk (warm off-white, chalk drawn on slate) ---------------- */
+  --chalk-50:   hsl(38 30% 96%);
+  --chalk-100:  hsl(36 20% 91%);
+  --chalk-300:  hsl(34 12% 74%);
+  --chalk-500:  hsl(30 8% 56%);
+  --chalk-700:  hsl(28 7% 43%);
+
+  /* ---- Raw · process magenta (the registration ink) ---------------------- */
+  --magenta-300: hsl(334 90% 72%);
+  --magenta-400: hsl(334 90% 64%);
+  --magenta-500: #f5358a;
+  --magenta-600: hsl(334 78% 47%);
+  --magenta-a12: hsl(334 90% 60% / 0.12);
+  --magenta-a20: hsl(334 90% 60% / 0.20);
+  --magenta-a32: hsl(334 90% 62% / 0.32);
+
+  /* ---- Raw · paper (the only lit surface) -------------------------------- */
+  --paper-100: hsl(40 36% 97%);
+  --paper-200: hsl(38 24% 92%);
+  --paper-ink:      hsl(28 10% 26%);
+  --paper-ink-soft: hsl(28 8% 44%);
+
+  /* ---- Raw · signal (held for the technique warnings in INC-5) ----------- */
+  --amber-400: hsl(38 88% 58%);
+  --amber-a16: hsl(38 88% 55% / 0.16);
+
+  /* =========================================================================
+     Semantic tokens — components reference these
+     ====================================================================== */
+
+  /* surfaces */
+  --color-void:           var(--slate-1000);
+  --color-bg:             var(--slate-950);
+  --color-surface:        var(--slate-850);
+  --color-surface-sunken: var(--slate-900);
+  --color-surface-raised: var(--slate-800);
+  --color-surface-hover:  var(--slate-750);
+
+  /* lines */
+  --color-hairline: var(--slate-700);
+  --color-border:   var(--slate-650);
+  --color-divider:  var(--slate-700);
+
+  /* ink */
+  --color-text:          var(--chalk-100);
+  --color-text-bright:   var(--chalk-50);
+  --color-text-muted:    var(--chalk-300);
+  --color-text-faint:    var(--chalk-500);
+  --color-text-disabled: var(--slate-500);
+
+  /* accent · process magenta — the single interaction colour */
+  --color-accent:        var(--magenta-500);
+  --color-accent-hover:  var(--magenta-400);
+  --color-accent-press:  var(--magenta-600);
+  --color-accent-ink:    var(--slate-1000);
+  --color-accent-wash:   var(--magenta-a12);
+  --color-accent-wash-2: var(--magenta-a20);
+  --color-focus-ring:    var(--magenta-a32);
+
+  /* the work surface */
+  --color-paper:        var(--paper-100);
+  --color-paper-shade:  var(--paper-200);
+  --color-paper-ink:    var(--paper-ink);
+  --color-paper-ink-soft: var(--paper-ink-soft);
+  --color-registration: var(--magenta-500);
+
+  /* signal */
+  --color-warning:      var(--amber-400);
+  --color-warning-wash: var(--amber-a16);
+
+  /* ---- Typography -------------------------------------------------------- */
+  --font-display: 'DM Sans', system-ui, sans-serif;
+  --font-ui:      'Inter', system-ui, sans-serif;
+  --font-mono:    'IBM Plex Mono', ui-monospace, 'SFMono-Regular', monospace;
+
+  --text-2xs: 0.6875rem; /* 11px — ruler ticks, chips */
+  --text-xs:  0.75rem;   /* 12px — readouts, captions */
+  --text-sm:  0.8125rem; /* 13px — UI body, labels */
+  --text-md:  0.9375rem; /* 15px — emphasis */
+  --text-lg:  1.125rem;  /* 18px — section heads */
+  --text-xl:  1.375rem;  /* 22px — wordmark */
+
+  --weight-regular:  400;
+  --weight-medium:   500;
+  --weight-semibold: 600;
+  --weight-bold:     700;
+
+  --leading-tight:  1.15;
+  --leading-snug:   1.4;
+  --leading-normal: 1.5;
+
+  --tracking-tight: -0.01em;
+  --tracking-wide:  0.04em;
+  --tracking-caps:  0.12em;
+
+  /* ---- Space (4px base) -------------------------------------------------- */
+  --space-1:  0.25rem;
+  --space-2:  0.5rem;
+  --space-3:  0.75rem;
+  --space-4:  1rem;
+  --space-5:  1.25rem;
+  --space-6:  1.5rem;
+  --space-8:  2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+
+  /* ---- Radius ------------------------------------------------------------ */
+  --radius-xs:   3px;
+  --radius-sm:   5px;
+  --radius-md:   8px;
+  --radius-lg:   12px;
+  --radius-pill: 999px;
+
+  /* ---- Elevation (warm, low, darkroom-soft) ------------------------------ */
+  --shadow-1: 0 1px 2px hsl(24 30% 2% / 0.4);
+  --shadow-2: 0 4px 12px hsl(24 30% 2% / 0.45);
+  --shadow-3: 0 12px 32px hsl(24 30% 2% / 0.55);
+  --shadow-paper:
+    0 2px 4px hsl(24 30% 2% / 0.5),
+    0 18px 48px hsl(24 30% 1% / 0.55);
+
+  /* ---- Layout (the shell frame) ------------------------------------------ */
+  --topbar-h:    52px;
+  --statusbar-h: 30px;
+  --rail-w:      56px;
+  --panel-w:     288px;
+  --ruler-size:  24px;
+
+  /* ---- Motion (overridden under reduced-motion below) -------------------- */
+  --motion-fast: 120ms;
+  --motion-base: 200ms;
+  --motion-slow: 320ms;
+  --ease-out:    cubic-bezier(0.2, 0.6, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Narrow viewports: a precision canvas is not a phone-first surface, but the
+   frame should still degrade gracefully rather than overflow. */
+@media (max-width: 760px) {
+  :root {
+    --panel-w: 224px;
+    --rail-w:  50px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --motion-fast: 0ms;
+    --motion-base: 0ms;
+    --motion-slow: 0ms;
+  }
+}
