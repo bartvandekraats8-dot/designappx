@@ -20,6 +20,7 @@
     "@fontsource/playfair-display": "5.2.8",
     "@fontsource/space-grotesk": "5.2.10",
     "@fontsource/unbounded": "5.2.8",
+    "canvg": "4.0.3",
     "fabric": "7.4.0",
     "idb": "8.0.3",
     "jspdf": "4.2.1",

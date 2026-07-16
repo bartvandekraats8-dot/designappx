@@ -493,6 +493,26 @@ Warm darkroom: chalk-on-slate neutrals; the paper artboard is the only lit surfa
   the font licensing note (9 OFL + Permanent Marker Apache-2.0).
   `tsc -b && vite build` zero errors; `npm run lint` zero errors.
 
+- 2026-07-15 — post-ship fix: `npm run dev` was broken (`[plugin:vite:import-
+  analysis] Failed to resolve import "canvg"`), found when actually loading
+  the app in a browser for the first time since INC-7 — the INC-7 `canvg`
+  externalization (`vite.config.ts`'s `build.rolldownOptions.external`) only
+  covers the production build; Vite's dev server independently resolves
+  every dynamic `import()` it finds while transforming modules on request
+  (including jsPDF's optional `import("canvg")` fallback, pulled in eagerly
+  because `TopBar.tsx` statically imports `ExportDialog.tsx`, not lazily),
+  and fails hard since `canvg` was never actually installed. Fixed properly
+  rather than patching dev mode too: installed the real `canvg` (4.0.3,
+  verified against npm) as a normal dependency and removed the `external`
+  workaround from `vite.config.ts` entirely — the code path that would use
+  it is still never executed (we use `svg2pdf.js` for all SVG→PDF, never
+  jsPDF's own image-embedding fallback), so it's inert either way, but a
+  real install resolves cleanly in both dev and prod instead of needing two
+  different workarounds. Verified `tsc -b`, `vite build`, and `npm run dev`
+  (fetched the exact module chain that broke — `main.tsx` →
+  `ExportDialog.tsx` → `exportPdf.ts` → jspdf — confirmed it now transforms
+  without error) all clean.
+
 ## 8. Changelog (running)
 
 - `[TICKET-011] chore(INC-9): ESLint (flat config) + npm run lint; keyboard/
